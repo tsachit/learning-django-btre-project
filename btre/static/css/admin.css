@@ -1,32 +1,38 @@
-#header{
+#header {
     min-height: 50px;
     color: #ffffff;
-    background: #10384e;
+    background: #10284e;
 }
 
-#branding h1{
+#branding h1 {
     color: #ffffff;
 }
 
 a:link,
-a:visited{
-    color: #10384e;
+a:visited {
+    color: #10284e;
 }
 
-div.breadcrumbs{
+div.breadcrumbs {
     background: #30caa0;
-    color: #10384e;
+    color: #10284e;
 }
 
-div.breadcrumbs a{
+div.breadcrumbs a {
     color: #333;
 }
 
-.module h2, .module caption, .inline-group h2{
+.module h2,
+.module caption,
+.inline-group h2 {
     background: #30caa0;
 }
 
-.button, input[type=submit], input[type=button], .submit-row input, a.button{
-    background: #10384e;
+.button,
+input[type=submit],
+input[type=button],
+.submit-row input,
+a.button {
+    background: #10284e;
     color: #ffffff;
 }
