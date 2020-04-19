@@ -22,10 +22,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-f-r$c#l^mxuyaqngxqdk4ie&5vb08eebrpjvm0oune0af@+nj'
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY', default='-f-r$c#l^mxuyaqngxqdk4ie&5vb08eebrpjvm0oune0af@+nj')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = bool(os.environ.get('DEBUG_MODE', default=True))
 
 ALLOWED_HOSTS = ['127.0.0.1', 'learning-django-btre.herokuapp.com']
 
@@ -85,10 +86,10 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'btredb',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost'
+        'NAME': os.environ.get('DB_NAME', default='dtredb'),
+        'USER': os.environ.get('DB_USER', default='postgres'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', default='postgres'),
+        'HOST': os.environ.get('DB_HOST', default='localhost')
     }
 }
 
@@ -147,8 +148,8 @@ MESSAGE_TAGS = {
 # Email config
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', default='')
 EMAIL_USE_TLS = True
 
 try:
